@@ -46,4 +46,6 @@ public interface AccountDao{
     @Select("SELECT id,account,password,nick_name,update_time,create_time FROM account_tbl where id=#{id}")
     AccountEntity findById(@Param("id") long id);
 
+
+
 }
