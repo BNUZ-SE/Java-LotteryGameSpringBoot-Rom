@@ -40,6 +40,18 @@ public class ActivityServiceImpl implements ActivityService {
         }
         return re;
     }
+    //删除单个活动
+    @Override
+    public boolean delActivity(int id) {
+        boolean flag = false;
+        try {
+            activityDao.delAct(id);
+            flag = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
     //获取单个活动信息
     @Override
     public ActivityEntity getActivity(long id){

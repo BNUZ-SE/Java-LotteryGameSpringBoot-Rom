@@ -20,8 +20,7 @@ public interface ActivityService {
      * @param id
      * @return
      */
-    //TODO boolean delActivity(int id);
-
+    boolean delActivity(int id);
 
     /**
      * 修改活动信息

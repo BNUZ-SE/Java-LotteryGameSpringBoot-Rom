@@ -41,6 +41,7 @@ public class AccountController {
         return accountService.findAccountById(id);
     }
 
+
     /**
      *  更新账户
      *  PUT
@@ -55,6 +56,7 @@ public class AccountController {
         accountEntity.setNick_name(jsonObject.get("nick_name").toString());
         return accountService.updateAccount(accountEntity);
     }
+
 
     /**
      *  登录

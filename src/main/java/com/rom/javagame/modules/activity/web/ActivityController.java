@@ -54,9 +54,15 @@ public class ActivityController {
     public ActivityEntity getActivity(@PathVariable long actid) {
         return activityService.getActivity(actid);
     }
+
     /**
      *
-     *
+     * 删除单个活动
+     * DELETE
      *
      * */
+    @RequestMapping(value="act/{actid}", method = RequestMethod.DELETE)
+    public boolean delActivity(@PathVariable int activity_id) {
+        return activityService.delActivity(activity_id);
+    }
 }

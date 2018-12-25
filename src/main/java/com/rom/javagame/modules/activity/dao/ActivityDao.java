@@ -38,4 +38,9 @@ public interface ActivityDao {
      * */
     @Select("select * from activity_tbl where act_name=#{act_name} and create_time=#{create_time}")
     ActivityEntity findActivityByNameNTime(@Param("act_name") String act_name, @Param("create_time") Date create_time);
+   /**
+    * 根据活动id 删除活动（单个）
+    * */
+    @Delete("delete from activity_tbl where id=#{id}")
+    void delAct(@Param("id") int id);
 }
