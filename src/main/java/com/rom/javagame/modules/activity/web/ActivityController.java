@@ -30,12 +30,23 @@ public class ActivityController {
         activityEntity.setAct_name(jsonObject.get("act_name").toString());
         activityEntity.setAct_desc(jsonObject.get("act_desc").toString());
         activityEntity.setAct_person_num(Long.parseLong(jsonObject.get("act_person_num").toString()));
-//        activityEntity.setStart_time(String2Date.stringToDate(jsonObject.get("start_time").toString(),"yyyy-MM-dd HH:mm:ss"));
-//        activityEntity.setEnd_time(String2Date.stringToDate(jsonObject.get("end_time").toString(), "yyyy-MM-dd HH:mm:ss"));
+        //TODO 设置开始时间 结束时间
+        //        activityEntity.setStart_time(String2Date.stringToDate(jsonObject.get("start_time").toString(),"yyyy-MM-dd HH:mm:ss"));
+        //        activityEntity.setEnd_time(String2Date.stringToDate(jsonObject.get("end_time").toString(), "yyyy-MM-dd HH:mm:ss"));
         activityEntity.setStart_time(new Date());
         activityEntity.setEnd_time(new Date());
         activityEntity.setCreate_time(new Date());
         return activityService.addActivity(activityEntity, Long.parseLong(jsonObject.get("account_id").toString()));
+    }
+    /**
+     *
+     * 删除单个活动
+     * DELETE
+     *
+     * */
+    @RequestMapping(value="act/{actid}", method = RequestMethod.DELETE)
+    public boolean delActivity(@PathVariable int activity_id) {
+        return activityService.delActivity(activity_id);
     }
     /**
      * 获取全部活动
@@ -54,15 +65,17 @@ public class ActivityController {
     public ActivityEntity getActivity(@PathVariable long actid) {
         return activityService.getActivity(actid);
     }
-
     /**
-     *
-     * 删除单个活动
-     * DELETE
-     *
-     * */
-    @RequestMapping(value="act/{actid}", method = RequestMethod.DELETE)
-    public boolean delActivity(@PathVariable int activity_id) {
-        return activityService.delActivity(activity_id);
+     * 更新单个活动信息
+     * PUT
+     * **/
+    @RequestMapping(value="act/{actid}", method = RequestMethod.PUT)
+    public int updateActivity(@PathVariable int activity_id, @RequestBody JSONObject jsonObject) {
+        ActivityEntity activityEntity = new ActivityEntity();
+        activityEntity.setId(activity_id);
+        activityEntity.setAct_name(jsonObject.get("activity_name").toString());
+        activityEntity.setAct_desc(jsonObject.get("activity_desc").toString());
+        //TODO 设置开始时间 结束时间
+        return activityService.updateActivity(activityEntity);
     }
 }

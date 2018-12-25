@@ -41,6 +41,13 @@ public interface ActivityService {
      * 返回所有活动信息
      * @return
      * */
-
     List<ActivityEntity> getAllActivity();
+
+    /**
+     * 修改活动信息
+     * @param activityEntity
+     * @return
+     * */
+    int updateActivity(ActivityEntity activityEntity);
+
 }

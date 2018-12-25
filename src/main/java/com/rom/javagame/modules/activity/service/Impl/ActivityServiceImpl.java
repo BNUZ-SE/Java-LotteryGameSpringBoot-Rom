@@ -52,16 +52,28 @@ public class ActivityServiceImpl implements ActivityService {
         }
         return flag;
     }
+
     //获取单个活动信息
     @Override
     public ActivityEntity getActivity(long id){
         return activityDao.findActivityById(id);
     }
+
     //获取所有活动列表
     @Override
     public List<ActivityEntity> getAllActivity(){
         return activityDao.getAllActivity();
     }
-
+    @Override
+    public int updateActivity(ActivityEntity activityEntity) {
+        int re = -1;
+        try{
+            activityDao.updateActivity(activityEntity);
+            re = activityEntity.getId();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return re;
+    }
 
 }
