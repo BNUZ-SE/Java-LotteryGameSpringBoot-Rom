@@ -51,4 +51,19 @@ public interface ActivityDao {
      * */
     @Update("update activity_tbl set act_name=#{act_name}, act_desc=#{act_desc}, start_time=#{start_time}, end_time=#{end_time} where id=#{id}")
     boolean updateActivity(ActivityEntity activityEntity);
+
+    /**
+     * 参与活动人数增加
+     * */
+    @Update("update activity_tbl set act_person_num=act_person_num + 1 where id=#{id}")
+    boolean updateActivityPersonNum(@Param("id") int id);
+
+
+    /**
+    * 参与活动人数清空
+    * */
+    @Update("update activity_tbl set act_person_num=0 where id=#{id}")
+    boolean clearActivityPersonNum(@Param("id") int id);
+
+
 }

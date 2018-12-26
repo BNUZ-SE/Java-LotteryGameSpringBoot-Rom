@@ -64,16 +64,19 @@ public class ActivityServiceImpl implements ActivityService {
     public List<ActivityEntity> getAllActivity(){
         return activityDao.getAllActivity();
     }
+    //修改活动信息
     @Override
     public int updateActivity(ActivityEntity activityEntity) {
         int re = -1;
         try{
             activityDao.updateActivity(activityEntity);
+            activityDao.updateActivityPersonNum(activityEntity.getId());
             re = activityEntity.getId();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return re;
     }
+
 
 }

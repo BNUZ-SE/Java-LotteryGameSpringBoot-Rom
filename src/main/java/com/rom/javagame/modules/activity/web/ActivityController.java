@@ -29,7 +29,7 @@ public class ActivityController {
         ActivityEntity activityEntity = new ActivityEntity();
         activityEntity.setAct_name(jsonObject.get("act_name").toString());
         activityEntity.setAct_desc(jsonObject.get("act_desc").toString());
-        activityEntity.setAct_person_num(Long.parseLong(jsonObject.get("act_person_num").toString()));
+        activityEntity.setAct_person_num(0);
         //TODO 设置开始时间 结束时间
         //        activityEntity.setStart_time(String2Date.stringToDate(jsonObject.get("start_time").toString(),"yyyy-MM-dd HH:mm:ss"));
         //        activityEntity.setEnd_time(String2Date.stringToDate(jsonObject.get("end_time").toString(), "yyyy-MM-dd HH:mm:ss"));
@@ -69,7 +69,7 @@ public class ActivityController {
      * 更新单个活动信息
      * PUT
      * **/
-    @RequestMapping(value="act/{actid}", method = RequestMethod.PUT)
+    @RequestMapping(value="act/{activity_id}", method = RequestMethod.PUT)
     public int updateActivity(@PathVariable int activity_id, @RequestBody JSONObject jsonObject) {
         ActivityEntity activityEntity = new ActivityEntity();
         activityEntity.setId(activity_id);
