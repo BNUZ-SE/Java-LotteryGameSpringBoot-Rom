@@ -34,7 +34,6 @@ public class ActivityServiceImpl implements ActivityService {
                 System.out.println(id);
                 re = id;
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }

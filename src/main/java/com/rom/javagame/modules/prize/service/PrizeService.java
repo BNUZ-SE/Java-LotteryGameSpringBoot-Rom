@@ -2,6 +2,8 @@ package com.rom.javagame.modules.prize.service;
 
 import com.rom.javagame.modules.prize.entity.PrizeEntity;
 
+import java.util.List;
+
 public interface PrizeService {
     /**
      * 新增奖品
@@ -31,5 +33,10 @@ public interface PrizeService {
      * 根据活动查询奖品
      * @param act_id
      * */
+    List<PrizeEntity> findPrizesByAct(int act_id);
 
+    /**
+     * 奖品数量 -1
+     * */
+    boolean reducePrize(int id);
 }

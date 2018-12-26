@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PrizeServiceImpl implements PrizeService{
     @Autowired
@@ -48,5 +50,13 @@ public class PrizeServiceImpl implements PrizeService{
         }
         return flag;
     }
+    //根据活动id返回奖品列表
+    public List<PrizeEntity> findPrizesByAct(int id) {
+        return prizeDao.findPrizesByActId(id);
+    }
 
+    //奖品数量-1
+    public boolean reducePrize(int id) {
+        return prizeDao.reducePrize(id);
+    }
 }

@@ -4,6 +4,8 @@ import com.rom.javagame.modules.prize.entity.PrizeEntity;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Mapper
 @Repository
 public interface PrizeDao {
@@ -32,9 +34,12 @@ public interface PrizeDao {
     /**
      * 根据活动id查找奖品
      * */
+    @Select("select * from prize_tbl where act_id=#{id}")
+    List<PrizeEntity> findPrizesByActId(@Param("id") int id);
 
-    //TODO @Select
-
-
-
+    /**
+     * 奖品数量-1
+     * */
+    @Update("update prize_tbl set prize_num=prize_num-1 where id=#{id}")
+    boolean reducePrize(@Param("id") int id);
 }
