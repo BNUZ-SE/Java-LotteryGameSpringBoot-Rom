@@ -70,7 +70,6 @@ public class ActivityServiceImpl implements ActivityService {
         int re = -1;
         try{
             activityDao.updateActivity(activityEntity);
-            activityDao.updateActivityPersonNum(activityEntity.getId());
             re = activityEntity.getId();
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,5 +77,16 @@ public class ActivityServiceImpl implements ActivityService {
         return re;
     }
 
+    //清空活动参与人数
+    @Override
+    public boolean clearActivityPersonNum(int id) {
+        boolean flag = false;
+        try {
+            flag = activityDao.clearActivityPersonNum(id);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
 
 }

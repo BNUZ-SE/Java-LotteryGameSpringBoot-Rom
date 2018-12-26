@@ -50,5 +50,12 @@ public interface ActivityService {
      * */
     int updateActivity(ActivityEntity activityEntity);
 
+    /**
+     * 清空活动参与人数
+     * @param id
+     * @return
+     *
+     * */
+    boolean clearActivityPersonNum(int id);
 
 }

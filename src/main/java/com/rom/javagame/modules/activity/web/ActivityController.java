@@ -78,4 +78,11 @@ public class ActivityController {
         //TODO 设置开始时间 结束时间
         return activityService.updateActivity(activityEntity);
     }
+    /**
+     * 清空活动参与人数
+     * */
+    @RequestMapping(value="act/{activity_id}/clear", method = RequestMethod.GET)
+    public boolean clearActivityPersonNum(@PathVariable int activity_id) {
+        return activityService.clearActivityPersonNum(activity_id);
+    }
 }
