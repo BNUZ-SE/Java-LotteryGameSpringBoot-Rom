@@ -44,7 +44,7 @@ public class ActivityController {
      * DELETE
      *
      * */
-    @RequestMapping(value="act/{actid}", method = RequestMethod.DELETE)
+    @RequestMapping(value="act/{activity_id}", method = RequestMethod.DELETE)
     public boolean delActivity(@PathVariable int activity_id) {
         return activityService.delActivity(activity_id);
     }
