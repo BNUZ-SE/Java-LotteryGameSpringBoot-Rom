@@ -37,4 +37,16 @@ public class PrizeServiceImpl implements PrizeService{
         return flag;
     }
 
+    //删除奖品
+    @Override
+    public boolean delPrize(int id) {
+        boolean flag = false;
+        try {
+            flag = prizeDao.delPrize(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 }

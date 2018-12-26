@@ -21,10 +21,11 @@ public interface PrizeService {
 
     /**
      * 删除奖品
-     * @param prizeEntity
+     * @param id
      * @return
      *
      * */
+    boolean delPrize(int id);
 
     /**
      * 根据活动查询奖品

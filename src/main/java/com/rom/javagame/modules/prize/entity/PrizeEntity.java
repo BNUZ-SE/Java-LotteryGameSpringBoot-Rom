@@ -1,6 +1,7 @@
 package com.rom.javagame.modules.prize.entity;
 
 public class PrizeEntity implements java.io.Serializable{
+    private int id;
     private Long act_id;
     private String prize_name;
     private int prize_level;
@@ -9,6 +10,14 @@ public class PrizeEntity implements java.io.Serializable{
 
     public  PrizeEntity() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Long getAct_id() {

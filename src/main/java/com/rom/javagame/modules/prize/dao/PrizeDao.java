@@ -1,10 +1,7 @@
 package com.rom.javagame.modules.prize.dao;
 
 import com.rom.javagame.modules.prize.entity.PrizeEntity;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 @Mapper
@@ -29,7 +26,8 @@ public interface PrizeDao {
      * 删除奖品
      *
      * */
-    //TODO @Delete("")
+    @Delete("delete from prize_tbl where id=#{id}")
+    boolean delPrize(@Param("id") int id);
 
     /**
      * 根据活动id查找奖品

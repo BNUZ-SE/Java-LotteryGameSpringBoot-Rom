@@ -26,7 +26,13 @@ public class PrizeController {
         prizeEntity.setPrize_num(Long.parseLong(jsonObject.get("prize_num").toString()));
         return prizeService.addPrize(prizeEntity);
     }
-
-
+    /**
+     * 删除奖品
+     * DELETE
+     * */
+    @RequestMapping(value="/act/{actid}/prize/{prize_id}", method = RequestMethod.DELETE)
+    public boolean deletePrize(@PathVariable int actid, @PathVariable int prize_id) {
+        return prizeService.delPrize(prize_id);
+    }
 
 }
